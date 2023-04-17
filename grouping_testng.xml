@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="grouping Suite">
+	<listeners>
+		<listener class-name="com.demowebshop.listeners.TestListener" />
+	</listeners>
+	<test thread-count="5" name="parameter testing grouping">
+		<parameter name="browser" value="chrome" />
+		<groups>
+			<run>
+				<exclude name="Smoke" />
+				<include name="Sanity" />
+				<exclude name="Regression" />
+			</run>
+		</groups>
+		<classes>
+			<class name="com.demowebshop.testscript.HomeTest" />
+			<class name="com.demowebshop.testscript.RegisterTest" />
+			<class name="com.demowebshop.testscript.LoginTest" />
+		</classes>
+	</test> <!-- Test -->
+</suite> <!-- Suite -->
